@@ -2,11 +2,21 @@ import { User, Menu, MapPin, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useAdmin } from "@/hooks/useAdmin";
+import { useCategoryFilter } from "@/hooks/useCategoryFilter";
 import logo from "@/assets/logo.jpg";
 
 const Header = () => {
   const navigate = useNavigate();
   const { isAdmin } = useAdmin();
+  const { setSelectedCategory } = useCategoryFilter();
+
+  const handleCategoryClick = (category: string) => {
+    setSelectedCategory(category.toLowerCase());
+    const element = document.getElementById("produtos");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-background border-b border-border">
