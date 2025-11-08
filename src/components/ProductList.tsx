@@ -24,12 +24,14 @@ const ProductList = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   useEffect(() => {
+    console.log("ProductList montado - iniciando fetch");
     fetchProducts();
   }, []);
 
   const fetchProducts = async () => {
     try {
       setLoading(true);
+      console.log("Fetching products...");
       const { data, error } = await supabase
         .from("products")
         .select(`
@@ -40,10 +42,18 @@ const ProductList = () => {
         `)
         .order("created_at", { ascending: false });
 
+      console.log("Supabase response - Data:", data?.length, "Error:", error?.message);
       if (error) throw error;
-      setProducts(data || []);
-    } catch (error) {
-      console.error("Erro ao carregar produtos:", error);
+
+      if (data) {
+        console.log("Produtos carregados:", data.length);
+        setProducts(data);
+      } else {
+        console.log("Nenhum dado retornado");
+        setProducts([]);
+      }
+    } catch (error: any) {
+      console.error("Erro ao carregar produtos:", error?.message);
       setProducts([]);
     } finally {
       setLoading(false);
