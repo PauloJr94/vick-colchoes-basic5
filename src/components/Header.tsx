@@ -1,4 +1,4 @@
-import { ShoppingCart, Heart, User, Menu, MapPin, Phone, Mail } from "lucide-react";
+import { User, Menu, MapPin, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useAdmin } from "@/hooks/useAdmin";
