@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { ShoppingCart, Heart } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { Eye } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface ProductCardProps {
   id: string;
@@ -15,15 +15,13 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({
+  id,
   name,
   description,
   price,
-  discount = 0,
   image_url,
-  is_featured,
 }: ProductCardProps) => {
-  const finalPrice = price - (price * discount) / 100;
-  const installment = finalPrice / 6;
+  const navigate = useNavigate();
 
   return (
     <Card className="group overflow-hidden border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
