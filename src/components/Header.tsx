@@ -16,19 +16,29 @@ const Header = () => {
 
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category.toLowerCase());
-    navigate("/");
+    setSearchQuery("");
+    if (location.pathname !== "/") {
+      navigate("/");
+    }
     setTimeout(() => {
       const element = document.getElementById("produtos");
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
-    }, 0);
+    }, 100);
   };
 
-  const handleSearch = (value: string) => {
-    setSearchQuery(value);
-    if (location.pathname !== "/") {
-      navigate("/");
+  const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      if (location.pathname !== "/") {
+        navigate("/");
+      }
+      setTimeout(() => {
+        const element = document.getElementById("produtos");
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
     }
   };
 
