@@ -75,8 +75,8 @@ const ProductDetail = () => {
       }
 
       setImages(allImages);
-    } catch (error) {
-      console.error("Erro ao carregar produto:", error);
+    } catch (error: any) {
+      console.error("Erro ao carregar produto:", error?.message || JSON.stringify(error));
     } finally {
       setLoading(false);
     }
