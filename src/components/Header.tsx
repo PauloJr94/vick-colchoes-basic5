@@ -1,7 +1,7 @@
-import { User, Menu, MapPin, Phone, Mail, Search } from "lucide-react";
+import { User, Menu, MapIn, Phone, Mail, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useAdmin } from "@/hooks/useAdmin";
 import { useCategoryFilter } from "@/hooks/useCategoryFilter";
 import { useProductSearchContext } from "@/hooks/useProductSearchContext";
@@ -9,15 +9,26 @@ import logo from "@/assets/logo.jpg";
 
 const Header = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { isAdmin } = useAdmin();
   const { setSelectedCategory } = useCategoryFilter();
   const { searchQuery, setSearchQuery } = useProductSearchContext();
 
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category.toLowerCase());
-    const element = document.getElementById("produtos");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    navigate("/");
+    setTimeout(() => {
+      const element = document.getElementById("produtos");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 0);
+  };
+
+  const handleSearch = (value: string) => {
+    setSearchQuery(value);
+    if (location.pathname !== "/") {
+      navigate("/");
     }
   };
 
