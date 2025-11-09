@@ -59,6 +59,12 @@ const ProductList = () => {
       }));
 
       console.log("Produtos com categorias:", productsWithCategories);
+      if (productsWithCategories.length > 0) {
+        console.log("Primeiros 3 produtos com categorias:");
+        productsWithCategories.slice(0, 3).forEach((p: any, i: number) => {
+          console.log(`Produto ${i}:`, p.name, "Category:", p.categories?.name);
+        });
+      }
       setProducts(productsWithCategories);
     } catch (error) {
       console.error("Erro ao carregar produtos:", error);
