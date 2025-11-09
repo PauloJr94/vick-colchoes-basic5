@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, ShoppingCart } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { CategoryFilterProvider } from "@/hooks/useCategoryFilter";
 
 interface Product {
   id: string;
