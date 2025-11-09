@@ -83,8 +83,8 @@ const Footer = () => {
                 <Instagram className="h-5 w-5 mt-0.5 flex-shrink-0" />
                 <div className="text-sm">
                   <p className="opacity-80">Instagram</p>
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
-                    @vcolchoes
+                  <a href="https://www.instagram.com/vickcolchoes?igsh=YjdlcDA0cXR0anJs" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
+                    @vickcolchoes
                   </a>
                 </div>
               </li>
