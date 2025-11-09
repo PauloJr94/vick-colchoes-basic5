@@ -49,8 +49,8 @@ const Header = () => {
           <a href="/" className="flex items-center gap-3">
             <img src={logo} alt="V Colchões" className="h-12 w-12 rounded-full object-cover" />
             <div className="hidden sm:block">
-              <h1 className="text-xl font-bold text-foreground">V Colchões</h1>
-              <p className="text-xs text-muted-foreground">vick</p>
+              <h1 className="text-xl font-bold text-foreground">Vick Colchões</h1>
+              <p className="text-xs text-muted-foreground">Sua melhor noite de sono</p>
             </div>
           </a>
 
