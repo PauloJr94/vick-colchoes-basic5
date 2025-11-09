@@ -62,29 +62,21 @@ const Footer = () => {
             <h4 className="font-semibold text-lg mb-4">Contato</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <Phone className="h-5 w-5 mt-0.5 flex-shrink-0" />
+                <MessageCircle className="h-5 w-5 mt-0.5 flex-shrink-0" />
                 <div className="text-sm">
-                  <p className="opacity-80">Atendimento</p>
-                  <a href="tel:+5587991018888" className="hover:text-accent transition-colors">
+                  <p className="opacity-80">WhatsApp</p>
+                  <a href="https://wa.me/5587991018888" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
                     (87) 99101-8888
                   </a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <Mail className="h-5 w-5 mt-0.5 flex-shrink-0" />
+                <Instagram className="h-5 w-5 mt-0.5 flex-shrink-0" />
                 <div className="text-sm">
-                  <p className="opacity-80">E-mail</p>
-                  <a href="mailto:contato@vcolchoes.com.br" className="hover:text-accent transition-colors">
-                    contato@vcolchoes.com.br
+                  <p className="opacity-80">Instagram</p>
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
+                    @vcolchoes
                   </a>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 mt-0.5 flex-shrink-0" />
-                <div className="text-sm">
-                  <p className="opacity-80 font-semibold">Nossas Lojas</p>
-                  <p className="mt-1">📍 V Colchões - Garanhuns, PE</p>
-                  <p className="mt-1">📍 V Colchões - Caruaru, PE</p>
                 </div>
               </li>
             </ul>
