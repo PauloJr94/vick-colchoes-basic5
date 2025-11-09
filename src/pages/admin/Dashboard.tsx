@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { useAdmin } from '@/hooks/useAdmin';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { ProductTable } from '@/components/admin/ProductTable';
 import { ProductFormDialog } from '@/components/admin/ProductFormDialog';
 import { toast } from '@/hooks/use-toast';
-import { LogOut, Plus, Settings, Home, Menu } from 'lucide-react';
+import { LogOut, Plus, Settings, Home, Menu, Search } from 'lucide-react';
 
 const Dashboard = () => {
   const { isAdmin, loading, user } = useAdmin();
