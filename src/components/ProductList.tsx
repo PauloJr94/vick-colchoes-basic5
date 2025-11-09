@@ -137,22 +137,13 @@ const ProductList = () => {
   return (
     <section className="py-16" id="produtos">
       <div className="container mx-auto px-4">
-        <div className="mb-12">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Nossos Produtos
-            </h2>
-          </div>
-          <div className="max-w-md mx-auto mb-8">
-            <SearchBar
-              value={searchQuery}
-              onChange={setSearchQuery}
-              placeholder="Buscar por nome, categoria ou preço..."
-            />
-          </div>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+            Nossos Produtos
+          </h2>
         </div>
 
-        {categoryFilteredProducts.length === 0 ? (
+        {filteredProducts.length === 0 ? (
           <div className="text-center py-12">
             <p className="text-muted-foreground text-lg">
               Nenhum produto encontrado{searchQuery ? " com os termos de busca" : " nesta categoria"}.
@@ -160,7 +151,7 @@ const ProductList = () => {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {categoryFilteredProducts.map((product) => (
+            {filteredProducts.map((product) => (
               <ProductCard
                 key={product.id}
                 {...product}
