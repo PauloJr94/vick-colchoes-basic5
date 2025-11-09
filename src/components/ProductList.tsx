@@ -81,17 +81,39 @@ const ProductList = () => {
     }
   };
 
-  const categoryFilteredProducts = selectedCategory === "all"
-    ? searchFilteredProducts
-    : searchFilteredProducts.filter((product) => {
-        if (!product.categories?.name) return false;
-        const match = product.categories.name.toLowerCase() === selectedCategory.toLowerCase();
-        return match;
+  const filteredProducts = useMemo(() => {
+    let result = products;
+
+    // Apply search filter
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase().trim();
+      result = result.filter((product) => {
+        const name = product.name.toLowerCase();
+        const description = (product.description || '').toLowerCase();
+        const category = (product.categories?.name || '').toLowerCase();
+
+        return (
+          name.includes(query) ||
+          description.includes(query) ||
+          category.includes(query)
+        );
       });
+    }
+
+    // Apply category filter
+    if (selectedCategory !== "all") {
+      result = result.filter((product) => {
+        if (!product.categories?.name) return false;
+        return product.categories.name.toLowerCase() === selectedCategory.toLowerCase();
+      });
+    }
+
+    return result;
+  }, [products, searchQuery, selectedCategory]);
 
   console.log("selectedCategory:", selectedCategory);
   console.log("searchQuery:", searchQuery);
-  console.log("filteredProducts:", categoryFilteredProducts);
+  console.log("filteredProducts:", filteredProducts);
 
   if (loading) {
     return (
